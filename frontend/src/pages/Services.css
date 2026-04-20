@@ -1,0 +1,300 @@
+.services-container {
+  padding-bottom: 5rem;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out forwards;
+}
+
+.services-header .title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--text-color, #1e293b);
+  margin-bottom: 1rem;
+}
+
+.services-header .subtitle {
+  font-size: 1.1rem;
+  color: var(--secondary-color, #64748b);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism Panel Base */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  border-radius: var(--radius-lg, 12px);
+}
+
+/* Discovery Section (Search & Filter) */
+.discovery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.search-bar-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 1rem 1.5rem 1rem 3.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  color: var(--text-color, #1e293b);
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.2);
+  border-color: var(--primary-color, #3b82f6);
+}
+
+.search-icon {
+  position: absolute;
+  left: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
+  color: var(--secondary-color, #64748b);
+  transition: color 0.3s ease;
+}
+
+.search-input:focus ~ .search-icon {
+  color: var(--primary-color, #3b82f6);
+}
+
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.cat-pill {
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: white;
+  color: var(--secondary-color, #64748b);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.cat-pill:hover {
+  background: rgba(var(--primary-rgb, 59,130,246), 0.05);
+  color: var(--primary-color, #3b82f6);
+  border-color: rgba(var(--primary-rgb, 59,130,246), 0.3);
+}
+
+.cat-pill.active {
+  background: var(--primary-color, #3b82f6);
+  color: white;
+  border-color: var(--primary-color, #3b82f6);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Service Card */
+.service-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.service-image-wrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-img {
+  transform: scale(1.08);
+}
+
+.service-category-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-color, #3b82f6);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+.service-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.service-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: var(--text-color, #1e293b);
+}
+
+.service-description {
+  color: var(--secondary-color, #64748b);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.service-price {
+  background: rgba(var(--primary-rgb, 59,130,246), 0.05);
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-label {
+  font-size: 0.85rem;
+  color: var(--secondary-color, #64748b);
+  font-weight: 600;
+}
+
+.price-value {
+  font-weight: 800;
+  color: var(--primary-color, #3b82f6);
+  font-size: 1.1rem;
+}
+
+.service-book-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.service-book-btn:active {
+  transform: scale(0.98);
+}
+
+/* Empty State */
+.no-results {
+  grid-column: 1 / -1;
+  padding: 4rem 2rem;
+}
+
+.empty-icon {
+  font-size: 4rem;
+  color: var(--secondary-color, #64748b);
+  opacity: 0.2;
+  margin-bottom: 1rem;
+}
+
+/* Loading state */
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(var(--primary-rgb, 59,130,246), 0.2);
+  border-top-color: var(--primary-color, #3b82f6);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+
+.slide-up {
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(var(--animation-order, 0) * 0.05s + 0.1s);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .services-header .title {
+    font-size: 2.2rem;
+  }
+  
+  .discovery-section {
+    padding: 0 1rem;
+  }
+}
