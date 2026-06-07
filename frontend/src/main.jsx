@@ -11,7 +11,7 @@ const GOOGLE_CLIENT_ID = "488870115916-dnesopc35abeo37ecr0ev5360164mhlp.apps.goo
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
-      <BrowserRouter basename="/xyz">
+      <BrowserRouter basename="/fixmate">
         <App />
       </BrowserRouter>
     </GoogleOAuthProvider>
