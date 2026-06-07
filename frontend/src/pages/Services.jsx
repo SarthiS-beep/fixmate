@@ -4,6 +4,57 @@ import toast from 'react-hot-toast';
 import { FiSearch, FiFrown } from 'react-icons/fi';
 import './Services.css';
 
+const MOCK_SERVICES = [
+  {
+    id: 1,
+    name: 'AC Cleaning & Servicing',
+    description: 'Professional AC servicing, filter cleaning, gas refill, and maintenance for peak cooling.',
+    price_range: '₹499 - ₹1499',
+    category: 'Appliance Repair',
+    image_url: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1469&auto=format&fit=crop'
+  },
+  {
+    id: 2,
+    name: 'Plumbing Services',
+    description: 'Fixing leaks, blockages, pipe installations, and complete bathroom fittings.',
+    price_range: '₹299 - ₹1999',
+    category: 'Plumbing',
+    image_url: 'https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=1470&auto=format&fit=crop'
+  },
+  {
+    id: 3,
+    name: 'Electrician',
+    description: 'Wiring, switchboard repair, appliance installation, and fault finding.',
+    price_range: '₹199 - ₹1299',
+    category: 'Electrical',
+    image_url: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=1469&auto=format&fit=crop'
+  },
+  {
+    id: 4,
+    name: 'Carpenter',
+    description: 'Furniture assembly, door lock repair, custom woodwork, and general carpentry.',
+    price_range: '₹399 - ₹2499',
+    category: 'Carpentry',
+    image_url: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1470&auto=format&fit=crop'
+  },
+  {
+    id: 5,
+    name: 'RO Filter Cleaning & Service',
+    description: 'Comprehensive RO water purifier servicing, filter replacement, and TDS level check.',
+    price_range: '₹299 - ₹1299',
+    category: 'Appliance Repair',
+    image_url: 'images/ro_filter.png'
+  },
+  {
+    id: 6,
+    name: 'Pest Control',
+    description: 'Effective treatments for cockroaches, termites, bed bugs, and general pest control.',
+    price_range: '₹899 - ₹2999',
+    category: 'Cleaning & Pest Control',
+    image_url: 'images/pest_control.png'
+  }
+];
+
 const Services = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -16,7 +67,7 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch('/xyz/backend/api/services');
+        const response = await fetch('/fixmate/backend/api/services');
         if (!response.ok) {
           throw new Error('Failed to fetch services');
         }
@@ -24,10 +75,9 @@ const Services = () => {
         setServices(data);
         setLoading(false);
       } catch (err) {
-        console.error("Error loading services:", err);
-        setError("Could not load services at this moment. Please try again later.");
+        console.warn("Backend API not reachable. Using fallback mock services.", err);
+        setServices(MOCK_SERVICES);
         setLoading(false);
-        toast.error("Failed to load services");
       }
     };
 
